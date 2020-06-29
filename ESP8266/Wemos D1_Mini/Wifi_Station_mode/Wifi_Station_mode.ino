@@ -1,8 +1,8 @@
 //Station mode
 #include <ESP8266WiFi.h> //Include the WiFi library
 
-const char* ssid = "myNova"; // SSID name
-const char* password = "12341234"; //Wifi password
+const char* ssid = "HomeWifi 2g"; // SSID name
+const char* password = "familynet203"; //Wifi password
 
 void setup(){
   Serial.begin(115200); //Start serial
