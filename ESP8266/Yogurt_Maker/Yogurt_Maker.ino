@@ -22,8 +22,8 @@ int roomTemperature;            // Room temperature in F
 void setup()
 {
   Serial.begin(9600);
-  //Blynk.begin(auth, ssid, pass);
-  Blynk.begin(auth, ssid, pass, IPAddress(192,168,0,133), 8080);
+  Blynk.begin(auth, ssid, pass);
+  //Blynk.begin(auth, ssid, pass, IPAddress(192,168,0,133), 8080);
 
   while (Blynk.connect() == false) {
     // Wait until connected
