@@ -33,6 +33,7 @@ void setup()
   sensors.setResolution(10);              // More on resolution: http://www.homautomation.org/2015/11/17/ds18b20-how-to-change-resolution-9101112-bits/
 
   timer.setInterval(1000L, sendTemps);    // Temperature sensor read interval. 2000 (ms) = 2 seconds.
+  digitalWrite(2, HIGH);
 }
 
 // Notice how there is very little in the loop()? Blynk works best that way.
