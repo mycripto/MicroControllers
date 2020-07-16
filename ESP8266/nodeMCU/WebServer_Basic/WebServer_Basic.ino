@@ -44,10 +44,13 @@ void setup() {
   server.on("/ledon",handleLEDon );
   server.on("/ledoff", handleLEDoff );
   server.onNotFound(handleNotFound);
+  server.begin();
 }
 
 
-void loop() {}
+void loop() {
+  server.handleClient();
+  }
 
 //functions:
 
@@ -67,18 +70,24 @@ void startWifi() {
   }
   Serial.println(" ");
   Serial.print("Wifi Connected, IP address: ");
+
+  
   Serial.print(WiFi.localIP());
 } //end of startWifi function//
 
-void writeLED(bool LEDon){
-  //LED Handler
-  if(LEDon)
-    digitalWrite(LEDPIN, 0);
-    else
-    digitalWrite(LEDPIN, 1);    
-  }
 
   //Handles
   void handleRoot(){
-    
+    server.send(200, "text/html", INDEX_HTML);
     }
+
+  void handleLEDon(){
+    writeLED(true);  
+    }  
+  void handleLEDoff(){
+    writeLED(false);    
+    }
+  void handleNotFound(){
+    server.send(404, "text/plain", "Not found");
+    }
+    
